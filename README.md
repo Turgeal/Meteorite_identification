@@ -2,7 +2,7 @@
 
 基于ConvNeXt + Swin Transformer + DINOv2 + CLIP + MAE + LightGBM Stacking的陨石/非陨石二分类系统。
 
-**Kaggle Stage2 最终 F1：0.8660**（Top-K=86，异构集成v5）。
+**Kaggle Stage2 最终 F1：0.86597**（Top-K=86，异构集成v5）。
 
 ## 特性
 
@@ -48,7 +48,7 @@ outputs/checkpoints/
     └── best_model_fold4.pth
 ```
 
-有模型权重后直接从第3步开始。
+有模型权重后直接从第3步开始（额外训练图片也要加入训练集，见第0步）。
 
 ### 第0步：准备Kaggle数据
 
