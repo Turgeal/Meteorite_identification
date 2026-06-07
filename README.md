@@ -56,13 +56,13 @@ outputs/checkpoints/
 
 ```
 project/
-├── train_images/train_images/       # 5098张训练图 + data/下的额外图片
-├── train_labels.csv                 # 从仓库复制（5371条标签）
+├── train_images/train_images/       # 训练图
+├── train_labels.csv                 # 从仓库复制（5,371条标签）
 ├── test_images_stage2/test_images/   # 194张测试图
 └── sample_submission_stage2.csv
 ```
 
-将 `data/new_train_final/` 下的273(91x3)张图片复制到 `train_images/train_images/`。
+**额外训练图片**（91张×3副本=273张，因文件过大存放于Google Drive）：从[Google Drive](https://drive.google.com/drive/folders/13H1ckINPUI-2cYB4k077LVJRJ1VkqsKz?usp=drive_link)下载 `new_train_final/`，将其中的273张图片（005099.jpg--005371.jpg）复制到 `train_images/train_images/`。仓库中的 `train_labels.csv` 已包含这273张的标签，可直接覆盖Kaggle原始标签文件。
 
 ### 第1步：训练 ConvNeXt-Base
 
@@ -159,7 +159,7 @@ python stack_ensemble_v5.py --data_root . --stage stage2 \
 
 ## 训练数据扩充：自动化Google以图搜图
 
-`data/new_train_final/` 中的额外训练图片（91张不同图片，每张复制3份，共273张）通过手工Google以图搜图确定标签。
+`new_train_final/`（存放于Google Drive同一文件夹）中的额外训练图片（91张不同图片，每张复制3份，共273张）通过手工Google以图搜图确定标签。
 
 我们已开发了自动化流水线（`google/google_reverse_search.py`），可程序化完成此过程：
 
